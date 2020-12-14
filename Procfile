@@ -1,1 +1,1 @@
-web: gunicorn notetaker.wsgi --log-file -
+web: sh -c 'cd notetaker && gunicorn notetaker.wsgi --log-file -'
