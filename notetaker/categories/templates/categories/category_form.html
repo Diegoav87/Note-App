@@ -1,0 +1,14 @@
+{% extends "categories/category_base.html" %}
+
+{% block category_content %}
+<div class="jumbotron mt-4">
+	<h4 class="display-4">Create New Category</h4>
+	<div class="container mt-4">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" value="Create" class="btn btn-primary btn-large">
+		</form>
+	</div>
+</div>
+{% endblock %}

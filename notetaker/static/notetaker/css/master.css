@@ -1,0 +1,17 @@
+.grid-category {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 30x;
+}
+
+.grid-block {
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.trash-position {
+    position: absolute;
+    top: 75%;
+    left: 85%;
+}

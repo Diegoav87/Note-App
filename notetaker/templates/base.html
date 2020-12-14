@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'notetaker/css/master.css' %}">
+    <script src="https://kit.fontawesome.com/1b2de11c6b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar bg-primary">
+        <a class="text-white navbar-brand" href="{% url 'index' %}">Notetaker</a>
+            <ul class="nav justify-content-end">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'notes:user_notes' username=user.username %}" class="nav-link text-light">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'categories:for_user' username=user.username %}" class="nav-link text-light">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'accounts:logout' %}" class="nav-link text-light">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'accounts:login' %}" class="nav-link text-light">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'accounts:signup' %}" class="btn btn-light text-black">Sign Up</a>
+                    </li>
+                {% endif %}
+            </ul>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "notes/note_base.html" %}
+
+{% block note_content %}
+
+<div class="container mt-4">
+    <h1>Notes</h1>
+</div>
+<div class="mt-4 grid-category">
+{% for note in user_category_notes %}
+<div class="d-flex justify-content-between border bg-light container grid-block position-relative">
+    <div>
+        <h3 class="text-dark m-auto">{{note.title}}</h3>
+        <div class="mt-2">
+            <p>{{note.text}}</p>
+        </div>
+    </div>
+    <div>
+        <span class="p-2 rounded text-white" style="background-color: {{note.category.color.code}};">{{note.category.name}}</span>
+    </div>
+    <div class="trash-position">
+        <a href="{% url 'notes:delete' pk=note.pk %}"><i class="fas fa-trash-alt fa-lg" style="color: red;"></i></a>
+    </div>
+</div>
+{% empty %}
+    <p>You have no notes yet in this category, add a new one from the notes list.</p>
+{% endfor %}
+</div>
+
+{% endblock %}

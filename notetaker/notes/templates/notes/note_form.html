@@ -1,0 +1,14 @@
+{% extends "notes/note_base.html" %}
+
+{% block note_content %}
+<div class="jumbotron mt-4">
+	<h4 class="display-4">Create New Note</h4>
+	<div class="container mt-4">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" value="Submit" class="btn btn-primary btn-large">
+		</form>
+	</div>
+</div>
+{% endblock %}

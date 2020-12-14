@@ -1,0 +1,29 @@
+{% extends "categories/category_base.html" %}
+
+{% block precategory %}
+<div class="mt-4 d-flex">
+    <h1>Categories</h1>
+    <div>
+        <a class="ml-4 mt-2 btn btn-primary" href="{% url 'categories:create' %}">Create Category</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block category_content %}
+
+<div class="mt-4 grid-category">
+    {% for category in category_user.user_categories.all %}
+    <div class="d-flex justify-content-between container grid-block" style="background-color: {{category.color.code}}">
+            <a class="nav-link" href="{% url 'notes:user_category_notes'  username=user.username pk=category.pk %}">
+                <div>
+                    <h3 class="text-white m-auto">{{category.name}}</h3>
+                </div>
+            </a>
+        <div>
+            <a href="{% url 'categories:delete' pk=category.pk %}"><i class="fas fa-trash-alt fa-lg" style="color: white;"></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
