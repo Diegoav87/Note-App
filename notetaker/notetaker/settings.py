@@ -24,9 +24,9 @@ TEMPLATE_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'a%kibz1e*co-v%-26_mv_8@3va9k)j9fbs9#+7luo%vyta-wc+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['note-app-diegoav87.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
